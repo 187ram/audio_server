@@ -17,8 +17,10 @@ def duration_validation(value):
 
 
 def participant_validation(value):
-    if len(value.split(',')) <= 10 or len(max(value.split(','))) <= 100:
-        raise ValidationError("Max length of participant is 10 and their name is 100")
+    if len(value.split(',')) > 10:
+        raise ValidationError("max no of participants is 10")
+    elif len(max(value.split(','))) > 100:
+        raise ValidationError("Name should be less than 100")
     else:
         return value
 
@@ -41,7 +43,7 @@ class Podcast(models.Model):
     duration = models.DurationField(validators =[duration_validation])
     uploaded_time = models.DateTimeField(auto_now=True)
     host = models.CharField(max_length=100,)
-    participants = models.CharField(max_length=1000,)
+    participants = models.CharField(max_length=1000, validators=[participant_validation])
     
     class Meta:
         ordering = ["id"]
