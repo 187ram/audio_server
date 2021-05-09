@@ -6,19 +6,19 @@ from audio_files.models import Audiobook, Podcast, Song
 class AudiobookSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Audiobook
-		fields = '__all__'
+		fields = ['id', 'name', 'author', 'narrator', 'duration','uploaded_time', ]
 
 
 class PodcastSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Podcast
-		fields = '__all__'
+		fields = ['id', 'name', 'duration', 'host', 'participants', 'uploaded_time',]
 
 
 class SongSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Song
-		fields = '__all__'
+		fields = ['id', 'name', 'duration', 'uploaded_time',]
 
 
 
