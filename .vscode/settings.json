@@ -1,0 +1,11 @@
+{
+    "json.schemas": [
+    {
+        "fileMatch": [
+            "/myfile"
+        ],
+        "url": "schemaURL"
+    }
+    ],
+    "python.pythonPath": "C:\\Users\\raaam\\Envs\\audio\\Scripts\\python.exe"
+}
