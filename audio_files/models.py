@@ -43,7 +43,7 @@ class Podcast(models.Model):
     duration = models.DurationField(validators =[duration_validation])
     uploaded_time = models.DateTimeField(auto_now=True)
     host = models.CharField(max_length=100,)
-    participants = models.CharField(max_length=1000, validators=[participant_validation])
+    participants = models.CharField(max_length=1100, validators=[participant_validation])
     
     class Meta:
         ordering = ["id"]
