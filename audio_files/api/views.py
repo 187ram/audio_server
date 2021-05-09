@@ -95,7 +95,7 @@ def api_update_view(request, file_type, pk):
 		return Response(status=status.HTTP_404_NOT_FOUND)
 
 	if request.method == 'PUT':
-		serializer = model_serializer(data=request.data)
+		serializer = model_serializer(file, data=request.data)
 		data = {}
 		if serializer.is_valid():
 			serializer.save()
