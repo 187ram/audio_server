@@ -5,9 +5,10 @@ Write a Flask / FastAPI Web API that simulates the behavior of an audio file ser
 while using a MongoDB / SQL database.
 Requirements: You have one of three audio files which structures are defined below
 Audio file type can be one of the following:
-1 – Song
-2 – Podcast
-3 – Audiobook
+
+1. – Song
+2. – Podcast
+3. – Audiobook
 
 
 ### Song file fields:
