@@ -16,7 +16,7 @@ Audio file type can be one of the following:
 - Name of the song – (mandatory, string, cannot be larger than 100
 characters)
 - Duration in number of seconds – (mandatory, integer, positive)
-- Uploaded time – (mandatory, Datetime, cannot be in the past)
+- Uploaded time – (mandatory, Datetime, cannot be in the past) - Auto_Updated
 
 
 ### Podcast file fields:
@@ -24,7 +24,7 @@ characters)
 - Name of the podcast – (mandatory, string, cannot be larger than 100
 characters)
 - Duration in number of seconds – (mandatory, integer, positive)
-- Uploaded time – (mandatory, Datetime, cannot be in the past)
+- Uploaded time – (mandatory, Datetime, cannot be in the past)  - Auto_Updated
 - Host – (mandatory, string, cannot be larger than 100 characters)
 - Participants – (optional, list of strings, each string cannot be larger than
 100 characters, maximum of 10 participants possible)
@@ -38,7 +38,7 @@ characters)
 characters)
 - Narrator - (mandatory, string, cannot be larger than 100 characters)
 - Duration in number of seconds – (mandatory, integer, positive)
-- Uploaded time – (mandatory, Datetime, cannot be in the past)
+- Uploaded time – (mandatory, Datetime, cannot be in the past) - Auto_Updated
 
 
 ## Test API
@@ -52,6 +52,39 @@ characters)
     url = /api/create/
     method = POST
     content-type=application/json
+    
+   ##### json Body Example
+    
+    a. Audiobook
+      {
+      "audioFileType":"audiobook",
+      "audioFileMetadata":{
+              "name":"name.mp3",
+              "duration_time":1000,
+              "author":"author_name",
+              "narrator":"narrator_name"
+              }
+         }
+     b. Podcast
+      {
+      "audioFileType":"podcast",
+      "audioFileMetadata":{
+              "name":"name.mp3",
+              "duration_time":1000,
+              "host":"host_name",
+              "participants":"participant_name_1, participant_name_2"
+              }
+         }
+     c. Song
+      {
+      "audioFileType":"song",
+      "audioFileMetadata":{
+              "name":"name.mp3",
+              "duration_time":300,
+              "author":"author_name",
+              "narrator":"narrator_name"
+              }
+         }
     
 ##### 3. Read
 
