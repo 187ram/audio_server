@@ -80,9 +80,7 @@ characters)
       "audioFileType":"song",
       "audioFileMetadata":{
               "name":"name.mp3",
-              "duration_time":300,
-              "author":"author_name",
-              "narrator":"narrator_name"
+              "duration_time":300
               }
          }
     
