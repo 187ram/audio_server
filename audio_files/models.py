@@ -25,9 +25,10 @@ def participant_validation(value):
         return value
 
 # Create your models here.
-
-class Song(models.Model):
+class Audiobook(models.Model):
     name = models.CharField(max_length=100,)
+    author = models.CharField(max_length=100,)
+    narrator = models.CharField(max_length=100,)
     duration = models.DurationField(validators =[duration_validation])
     uploaded_time = models.DateTimeField(auto_now=True)
     
@@ -43,7 +44,7 @@ class Podcast(models.Model):
     duration = models.DurationField(validators =[duration_validation])
     uploaded_time = models.DateTimeField(auto_now=True)
     host = models.CharField(max_length=100,)
-    participants = models.CharField(max_length=1100, validators=[participant_validation])
+    participants = models.CharField(max_length=1100, blank=True,validators=[participant_validation])
     
     class Meta:
         ordering = ["id"]
@@ -51,11 +52,8 @@ class Podcast(models.Model):
     def __str__(self):
         return self.name
 
-
-class Audiobook(models.Model):
+class Song(models.Model):
     name = models.CharField(max_length=100,)
-    author = models.CharField(max_length=100,)
-    narrator = models.CharField(max_length=100,)
     duration = models.DurationField(validators =[duration_validation])
     uploaded_time = models.DateTimeField(auto_now=True)
     
@@ -64,4 +62,6 @@ class Audiobook(models.Model):
     
     def __str__(self):
         return self.name
+
+
 
