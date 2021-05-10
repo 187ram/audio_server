@@ -62,22 +62,20 @@ def api_detail_view(request, file_type, pk):
 
 
 @api_view(['POST'])
-def api_create_view(request, file_type):
-
-	if file_type not in file_dict:
+def api_create_view(request,):
+	if request.data['audioFileType'] not in file_dict:
 		return Response(status=status.HTTP_404_NOT_FOUND)
 	else:
-		model_class = file_dict[file_type][0]
-		model_serializer = file_dict[file_type][1]
-
+		model_class = file_dict[request.data['audioFileType']][0]
+		model_serializer = file_dict[request.data['audioFileType']][1]
+	print(request.data['audioFileType'])
 	if request.method == 'POST':
-		serializer = model_serializer( data=request.data)
+		serializer = model_serializer( data=request.data['audioFileMetadata'])
 		data = {}
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 @api_view(['PUT',])
