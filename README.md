@@ -105,3 +105,4 @@ characters)
     url = /api/<file_type>/<id>
     method = DELETE
     content-type=application/json
+##
